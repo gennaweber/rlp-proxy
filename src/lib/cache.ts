@@ -1,9 +1,10 @@
 import { createClient } from '@supabase/supabase-js';
 import { APIOutput } from '../types';
 
-const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_URL: string = process.env.SUPABASE_URL || '';
+const SUPABASE_KEY: string = process.env.SUPABASE_KEY || '';
 
-const supabase = createClient(SUPABASE_URL, process.env.SUPABASE_KEY!);
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 interface CacheRecord extends APIOutput {
   url: string;
